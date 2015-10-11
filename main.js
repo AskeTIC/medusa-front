@@ -1,12 +1,16 @@
 //LIBRERIAS U OBJETOS
-var socket = io.connect('http://localhost:3030', { 'forceNew': true });
+var socket = io.connect('http://localhost:3030');
 
 //EVENTOS
-socket.on('conexion-realizada', function(data){
+socket.on('connect', function(){
+	console.log("Conectado");
+});
+
+socket.on('conexion realizada', function(data){
 	alert(data);
 });
 
-socket.on('data-sensor1' function(data) {  
+socket.on('data-sensor1', function(data) {  
 	console.log(data);
 	render(data);
 });
@@ -19,3 +23,4 @@ function render (data) {
 
   	document.getElementById('body').innerHTML = html;
 }
+
