@@ -1,24 +1,31 @@
 (function(){
 	//Creamos la app de Angular que es un módulo -medusa- sin dependencias
-	var app = angular.module('measures', []);
+	var app = angular.module('medusa', [
+		'ngRoute',
+		'medusa.directives',
+		'medusa.controllers'
+	]);
 	
-	//DIRECTIVAS PARA EXTRUCTURA
-	app.directive('asideLeft', function(){
-		return{
-			//De tipo elemento
-			restrict: 'E',
-			//Le indicamos la URL
-			templateUrl: '/partials/aside-left.html'
-			controller: function(){
-				this.measure = {
-	                        	name : 'temperatura',
-        	                	data : '34',
-                	        	date : '12:00:02:04'
-                		}:
+	app.config(['$routeProvider', function($routeProvider){
+		$routeProvider
+			.when('/', {
+				templateUrl: 'views/pricipal.html'
+				controller: 'principalController'
+			})
+			.when('/pruebas', {
+				templateUrl: 'views/pruebas.html',
+				controller: 'pruebasController',
+				controllerAs: 'pruebasCtl'
+			})
+			.when('/camaras', {
+				templateUrl: 'views/camaras.html',
+				controller: 'camarasController',
+				controllerAs: 'camsCtl'
+			})
+			.otherwise({
+				redirectTo: '/'
+			});
 
-			}
-			controllerAs: 'meCtl'
-		}
-	});
+	}]);
 
 })();
