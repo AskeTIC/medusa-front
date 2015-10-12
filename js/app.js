@@ -10,4 +10,14 @@
 		};
 	});
 
+	//DIRECTIVAS PARA EXTRUCTURA
+	app.directive('asideLeft', function(){
+		return{
+			//De tipo elemento
+			restrict: 'E',
+			//Le indicamos la URL
+			templateUrl: '/partials/aside-left.html'
+		}
+	});
+
 })();
