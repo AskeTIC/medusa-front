@@ -5,22 +5,20 @@
 		'medusa.directives',
 		'medusa.controllers'
 	]);
-	
+
 	app.config(['$routeProvider', function($routeProvider){
 		$routeProvider
 			.when('/', {
-				templateUrl: 'views/pricipal.html'
-				controller: 'principalController'
+				templateUrl: 'views/principal.html',
+				controller: 'PrincipalController'
 			})
 			.when('/pruebas', {
 				templateUrl: 'views/pruebas.html',
-				controller: 'pruebasController',
-				controllerAs: 'pruebasCtl'
+				controller: 'PruebasController'
 			})
 			.when('/camaras', {
 				templateUrl: 'views/camaras.html',
-				controller: 'camarasController',
-				controllerAs: 'camsCtl'
+				controller: 'CamarasController'
 			})
 			.otherwise({
 				redirectTo: '/'

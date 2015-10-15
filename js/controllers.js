@@ -1,11 +1,18 @@
 (function(){
 
-	var app = angular.module('medusa.controllers', [])
-		.controller('principalController', ['$scope', '$http', function($scope, $http){
+	angular.module('medusa.controllers', [])
+
+		.controller('PrincipalController', ['$scope', '$http', function($scope, $http){
 			
 		}])
-		.controller('pruebasController', [])
-		.controller('camarasController', [])
-		.controller('measuresController', function(){})
+		.controller('PruebasController', function(){
+			
+		})
+		.controller('CamarasController', function(){
+		
+		})
+		.controller('measuresController', function(){
+		
+		});
 
 })();
