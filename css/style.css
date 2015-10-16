@@ -1,4 +1,10 @@
-/* LAYOUT */
+/**************************************************
+**************************************************
+
+		LAYOUT
+
+***************************************************
+**************************************************/
 
 *{
 	margin:0;
@@ -18,7 +24,9 @@ body h1{
 }
 
 
-/* SIDEBAR LEFT*/
+/**************************************************
+		SIDEBAR LEFT
+**************************************************/
 
 .aside-left{
 	background:#0a0a0a;
@@ -118,34 +126,99 @@ body h1{
 					}
 
 
-/* MAIN*/
+/**************************************************
+		MAIN
+**************************************************/
 
 main{
 	background:#ffffff;
 	width:64%;
 }
 
-	main nav{
+	main .main-topbar{
 		display:flex;
 		width:100%;
 		background:black;
 	}
 
-		main nav div{
-			flex-direction:row;
-			padding:12.5px 0px 12.5px 0px;
-			text-decoration:none;
-			margin-left:2%;
+	main .main-topbar nav{
+		display:flex;
+		width:70%;
+		background:black;
+		height:2.625rem;
 
+	}
+
+		main .main-topbar nav div{
+			display:flex;
+			flex-direction:row;
+			height:100%;
+			
 		}
 
-			main nav div a{
+			main .main-topbar nav div a{
+				display:flex;
 				text-decoration:none;
 				font-weight:bold;
 				color:#215d9c;
+				padding-left:8%;
+				padding-right:8%;
+				height:2.625rem;
+				align-items:center;
 			}
 
-/* SIDEBAR RIGHT*/
+				main .main-topbar nav div a:hover{
+					background:white;
+					color:black;
+				}
+
+	main .main-topbar .main-topbar-div{
+		display:flex;
+		width:30%;
+		background:black;
+		height:2.625rem;
+		justify-content:flex-end;
+	}
+
+		main .main-topbar .main-topbar-div div{
+				display:flex;
+				flex-direction:row;
+				height:100%;
+				align-items:center;
+			}
+
+				main .main-topbar .main-topbar-div div a{
+					display:flex;
+					text-decoration:none;
+					font-weight:bold;
+					font-size:13px;
+					color:#215d9c;
+					padding-left:4%;
+					padding-right:4%;
+					height:2.625rem;
+					align-items:center;
+				}
+
+					main .main-topbar .main-topbar-div div a:hover{
+						color:white;
+					}
+
+				main .main-topbar .main-topbar-div div .image-link{
+					display:flex;
+					height:1.75rem;
+					width:1.75rem;
+					margin-right:2%;
+					background: url("../images/user.png") no-repeat;
+				}
+
+					main .main-topbar .main-topbar-div div .image-link:hover{
+						background: url("../images/user-hover.png") no-repeat;
+					}
+
+
+/**************************************************
+ 		SIDEBAR RIGHT
+ *************************************************/
 
 .aside-right{
 	background:#0a0a0a;
@@ -176,13 +249,7 @@ main{
 		}
 
 			.aside-right section .ensayos-content article{
-				/*display:flex;
-				flex-flow: row;
-				padding:10px 0px 10px 0px;
-				margin:0px 3px 0px 5px;
-				border-bottom:1px white solid;
-				align-items: center;
-				border-bottom:1px solid white;*/
+				
 			}
 
 				.aside-right section .ensayos-content article header{
