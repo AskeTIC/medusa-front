@@ -74,6 +74,7 @@ body h1{
 
 				.aside-left section .atmosfericas-content article div.sensors-measure{
 					color:white;
+					font-size:15px;
 				}
 
 					.aside-left section .atmosfericas-content article div img{
@@ -153,9 +154,7 @@ main{
 }
 
 	.aside-right section{
-		flex-direction:column;
-		height:50%;
-
+		height:96.5%;
 	}
 
 		.aside-right section header{
@@ -166,8 +165,120 @@ main{
 			text-align:center;
 			padding:10px 0px 10px 0px;
 			border-top:3px solid black;
+			border-bottom:3px solid black;
 
 		}
 
+		.aside-right section .ensayos-content{
+			display:flex;
+			flex-flow:column;
+			height:80%;			
+		}
+
+			.aside-right section .ensayos-content article{
+				/*display:flex;
+				flex-flow: row;
+				padding:10px 0px 10px 0px;
+				margin:0px 3px 0px 5px;
+				border-bottom:1px white solid;
+				align-items: center;
+				border-bottom:1px solid white;*/
+			}
+
+				.aside-right section .ensayos-content article header{
+					font-size:12px;
+					background: none;
+					padding:15px 0px 15px 0px;
+					border:0px;
+					}
+				
+				.aside-right section .ensayos-content article section{
+					height:3rem; /*16 x 3 = 48 pixeles*/		
+					display:flex;
+					flex-flow:row;
+					align-items: center;
+					justify-content:center;	
+				}
+
+					.aside-right section .ensayos-content article section .button{
+						height:3.8rem;
+						width:3.8rem;
+						background:#ccc;
+					}
+
+					.aside-right section .ensayos-content article section div{
+						display:flex;
+						border:1px solid black;
+						align-items: center;
+						justify-content:center;	
+					}
+
+					.aside-right section .ensayos-content article section .div-central{
+						height:3.8rem;
+						width:3.8rem;
+						background:white;
+					}
+
+					.aside-right section .ensayos-content article section .div-double{
+						height:3.8rem;
+						width:7.6rem;
+						background:#ccc;
+					}
+
+					.aside-right section .ensayos-content article section .div-hide{
+						display:none;
+					}
+
+						.aside-right section .ensayos-content article section div div{
+							border:1px solid black;
+							height:3rem;
+						}
+
+						.aside-right section .ensayos-content article section div .div-double-inner{
+							width:6.8rem;
+							background:white;
+						}
+
+						.aside-right section .ensayos-content article section div .div-button-inner-red{
+							width:3rem;
+							background:#ff0000;
+						}
+
+						.aside-right section .ensayos-content article section div .div-button-inner-green{
+							width:3rem;
+							background:#22e200;
+						}
+
+						.aside-right section .ensayos-content article section div .div-button-inner-gray{
+							width:3rem;
+							background:#666;
+						}
+
+		.aside-right section .extra-options{
+			display:flex;
+			flex-flow:column;
+			height:16.5%;
+			align-items: center;
+			justify-content:center;
+		}
+
+			.aside-right section .extra-options div{
+				
+			}
+
+				.aside-right section .extra-options div a{
+					padding:5px 5px 5px 5px;
+					background:#666;
+					border:1px solid white;
+					text-decoration:none;
+					color:white;
+					display:block;
+				} 
+
+					.aside-right section .extra-options div a:hover{
+					text-decoration:none;
+					border:1px solid black;
+					color:black;
+					} 
 
 
