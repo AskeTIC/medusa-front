@@ -14,7 +14,7 @@ body h1{
 
 #container{
     display:flex;
-    height:93vh;
+    height:100vh;
 }
 
 
@@ -27,7 +27,7 @@ body h1{
 }
 
 	.aside-left section{
-		flex-direction:column;
+		
 		height:50%;
 
 	}
@@ -40,8 +40,81 @@ body h1{
 			text-align:center;
 			padding:10px 0px 10px 0px;
 			border-top:3px solid black;
+			border-bottom:3px solid black;
 
 		}
+
+		.aside-left section .atmosfericas-content{
+			display:flex;
+			flex-flow: column;
+		}
+
+			.aside-left section .atmosfericas-content article{
+				display:flex;
+				flex-flow: row;
+				padding:10px 0px 10px 0px;
+				margin:0px 3px 0px 5px;
+				border-bottom:1px white solid;
+				align-items: center;
+			}
+
+				.aside-left section .atmosfericas-content article div{
+					width:33%;
+					color:#22e200;
+				}
+
+					.aside-left section .atmosfericas-content article div span{
+						color:#ff0000;
+					}
+
+				.aside-left section .atmosfericas-content article div.sensors-data{
+					font-size:25px;
+					weight:bold;
+				}
+
+				.aside-left section .atmosfericas-content article div.sensors-measure{
+					color:white;
+				}
+
+					.aside-left section .atmosfericas-content article div img{
+						
+					}
+
+		.aside-left section .maritimas-content{
+			display:flex;
+			flex-flow: column;
+		}
+
+			.aside-left section .maritimas-content article{
+				display:flex;
+				flex-flow: row;
+				padding:10px 0px 10px 0px;
+				margin:0px 3px 0px 5px;
+				border-bottom:1px white solid;
+				align-items: center;
+			}
+
+				.aside-left section .maritimas-content article div{
+					width:33%;
+					color:#22e200;
+				}
+
+					.aside-left section .maritimas-content article div span{
+						color:#ff0000;
+					}
+
+				.aside-left section .maritimas-content article div.sensors-data{
+					font-size:25px;
+					weight:bold;
+				}
+
+				.aside-left section .maritimas-content article div.sensors-measure{
+					color:white;
+				}
+
+					.aside-left section .maritimas-content article div img{
+							
+					}
 
 
 /* MAIN*/
@@ -68,6 +141,7 @@ main{
 			main nav div a{
 				text-decoration:none;
 				font-weight:bold;
+				color:#215d9c;
 			}
 
 /* SIDEBAR RIGHT*/
