@@ -141,79 +141,131 @@ main{
 		background:black;
 	}
 
-	main .main-topbar nav{
-		display:flex;
-		width:70%;
-		background:black;
-		height:2.625rem;
-
-	}
-
-		main .main-topbar nav div{
+		main .main-topbar nav{
 			display:flex;
-			flex-direction:row;
-			height:100%;
-			
+			width:70%;
+			background:black;
+			height:2.625rem;
+
 		}
 
-			main .main-topbar nav div a{
-				display:flex;
-				text-decoration:none;
-				font-weight:bold;
-				color:#215d9c;
-				padding-left:8%;
-				padding-right:8%;
-				height:2.625rem;
-				align-items:center;
-			}
-
-				main .main-topbar nav div a:hover{
-					background:white;
-					color:black;
-				}
-
-	main .main-topbar .main-topbar-div{
-		display:flex;
-		width:30%;
-		background:black;
-		height:2.625rem;
-		justify-content:flex-end;
-	}
-
-		main .main-topbar .main-topbar-div div{
+			main .main-topbar nav div{
 				display:flex;
 				flex-direction:row;
 				height:100%;
-				align-items:center;
+				
 			}
 
-				main .main-topbar .main-topbar-div div a{
+				main .main-topbar nav div a{
 					display:flex;
 					text-decoration:none;
 					font-weight:bold;
-					font-size:13px;
 					color:#215d9c;
-					padding-left:4%;
-					padding-right:4%;
+					padding-left:8%;
+					padding-right:8%;
 					height:2.625rem;
 					align-items:center;
 				}
 
-					main .main-topbar .main-topbar-div div a:hover{
-						color:white;
+					main .main-topbar nav div a:hover{
+						background:white;
+						color:black;
 					}
 
-				main .main-topbar .main-topbar-div div .image-link{
+		main .main-topbar .main-topbar-div{
+			display:flex;
+			width:30%;
+			background:black;
+			height:2.625rem;
+			justify-content:flex-end;
+		}
+
+			main .main-topbar .main-topbar-div div{
 					display:flex;
-					height:1.75rem;
-					width:1.75rem;
-					margin-right:2%;
-					background: url("../images/user.png") no-repeat;
+					flex-direction:row;
+					height:100%;
+					align-items:center;
 				}
 
-					main .main-topbar .main-topbar-div div .image-link:hover{
-						background: url("../images/user-hover.png") no-repeat;
+					main .main-topbar .main-topbar-div div a{
+						display:flex;
+						text-decoration:none;
+						font-weight:bold;
+						font-size:13px;
+						color:#215d9c;
+						padding-left:4%;
+						padding-right:4%;
+						height:2.625rem;
+						align-items:center;
 					}
+
+						main .main-topbar .main-topbar-div div a:hover{
+							color:white;
+						}
+
+					main .main-topbar .main-topbar-div div .image-link{
+						display:flex;
+						height:1.75rem;
+						width:1.75rem;
+						background: url("../images/user.png") no-repeat;
+					}
+
+						main .main-topbar .main-topbar-div div .image-link:hover{
+							background: url("../images/user-hover.png") no-repeat;
+						}
+
+	main .main-content{
+		display:flex;
+		background:white;
+		height:93.3%;
+		width:98%;
+		background:white;
+		flex-direction:row;
+		align-content:top;
+		justify-content:start;
+		/*flex-wrap:wrap;*/
+		padding-left:1%;
+		padding-right:1%;
+
+	}
+
+		main .main-content .main-div-left{
+			width:20.6%;
+		}
+
+			main .main-content .main-div-left div{
+				display:flex;
+				height:13.3vw;
+				align-items:flex-end;
+				justify-content:center;
+			}
+
+			main .main-content .main-div-left div .main-single-article{
+				width:11.5vw;
+				height:11.5vw;
+				background:white;
+				border-radius:15px;
+				border:2px solid;
+			}
+
+		main .main-content .main-div-center, main .main-content .main-div-right{
+			width:39.8%;
+		}
+
+			main .main-content .main-div-center div, main .main-content .main-div-right div{
+				display:flex;
+				height:13.3vw;
+				align-items:flex-end;
+				justify-content:center;
+			}
+
+				main .main-content .main-div-center div .main-double-article, main .main-content .main-div-right div .main-double-article{
+					width:23vw;
+					height:11.5vw;
+					background:white;
+					border-radius:15px;
+					border:2px solid;
+				}
 
 
 /**************************************************
