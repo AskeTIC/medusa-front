@@ -37,12 +37,12 @@
                         /*controllerAs: 'meCtl'*/
                 };
         })
-        .directive('mainContent', function(){
+        .directive('mainNav', function(){
                 return{
                         //De tipo elemento
                         restrict: 'E',
                         //Le indicamos la URL
-                        templateUrl: 'partials/main.html',
+                        templateUrl: 'partials/main-nav.html',
                 };
         });
 

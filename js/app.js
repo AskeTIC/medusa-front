@@ -4,24 +4,18 @@
 		'ngRoute',
 		'medusa.directives',
 		'medusa.controllers'
-	]);
+	])
 
-	app.config(['$routeProvider', function($routeProvider){
+	.config(['$routeProvider', function($routeProvider){
 		$routeProvider
 			.when('/', {
-				templateUrl: 'views/principal.html',
-				controller: 'PrincipalController',
-				controllerAs: 'PrincipalCtlr'
+				templateUrl: 'views/principal.html'
 			})
 			.when('/pruebas', {
-				templateUrl: 'views/pruebas.html',
-				controller: 'PruebasController',
-				controllerAs: 'PruebasCtlr'
+				templateUrl: 'views/trials.html'
 			})
 			.when('/camaras', {
-				templateUrl: 'views/camaras.html',
-				controller: 'CamarasController',
-				controllerAs: 'CamarasCtlr'
+				templateUrl: 'views/cameras.html'
 			})
 			.otherwise({
 				redirectTo: '/'

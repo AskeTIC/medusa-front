@@ -3,16 +3,19 @@
 	angular.module('medusa.controllers', [])
 
 		.controller('PrincipalController', ['$scope', '$http', function($scope, $http){
+
+		}])
+
+		.controller('PruebasController', ['$scope', '$http', function($scope, $http){
 			
 		}])
-		.controller('PruebasController', function(){
+
+		.controller('CamarasController', ['$scope', '$http', function($scope, $http){
 			
-		})
-		.controller('CamarasController', function(){
-		
-		})
-		.controller('measuresController', function(){
-		
-		});
+		}])
+
+		.controller('measuresController', ['$scope', '$http', function($scope, $http){
+			
+		}]);
 
 })();
