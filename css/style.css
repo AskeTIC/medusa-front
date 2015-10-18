@@ -68,12 +68,15 @@ body h1{
 
 				.aside-left section .atmosfericas-content article div{
 					width:33%;
-					color:#22e200;
 				}
 
-					.aside-left section .atmosfericas-content article div span{
-						color:#ff0000;
-					}
+				.aside-left section .atmosfericas-content article div.left-red{
+					color:#ff0000;
+				}
+
+				.aside-left section .atmosfericas-content article div.left-green{
+					color:#22e200;
+				}
 
 				.aside-left section .atmosfericas-content article div.sensors-data{
 					font-size:25px;
@@ -105,12 +108,15 @@ body h1{
 
 				.aside-left section .maritimas-content article div{
 					width:33%;
-					color:#22e200;
 				}
 
-					.aside-left section .maritimas-content article div span{
-						color:#ff0000;
-					}
+				.aside-left section .maritimas-content article div.left-red{
+					color:#ff0000;
+				}
+
+				.aside-left section .maritimas-content article div.left-green{
+					color:#22e200;
+				}
 
 				.aside-left section .maritimas-content article div.sensors-data{
 					font-size:25px;

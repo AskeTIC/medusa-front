@@ -4,52 +4,13 @@
 			Atmosféricas
 		</header>
 
-		<!--<article>
+		<section class="atmosfericas-content" ng-controller="MeasuresController as MeasuresCtrl">
 
-            <img/>
-            <div class="sensors-data">{{meCtl.measure.data}}</div>
-    		<div class="sensors-measure">{{meCtl.measure.date}</div>
+			<article ng-repeat="item in MeasuresCtrl.atmosfericas">
 
-		</article>-->
-
-		<section class="atmosfericas-content">
-			<article>
-
-	            <div><img src="images/imagen1.png"/></div>
-	            <div class="sensors-data"><span>20.5</span></div>
-	    		<div class="sensors-measure">km/h</div>
-
-			</article>
-
-			<article>
-
-	            <div><img src="images/imagen2.png"/></div>
-	            <div class="sensors-data">30.1</div>
-	    		<div class="sensors-measure">º C</div>
-
-			</article>
-
-			<article>
-
-	            <div><img src="images/imagen3.png"/></div>
-	            <div class="sensors-data"><span>40.6</span></div>
-	    		<div class="sensors-measure">kg cm2</div>
-
-			</article>
-
-			<article>
-
-	            <div><img src="images/imagen4.png"/></div>
-	            <div class="sensors-data">60</div>
-	    		<div class="sensors-measure">%</div>
-
-			</article>
-
-			<article>
-
-	            <div><img src="images/imagen4.png"/></div>
-	            <div class="sensors-data">60</div>
-	    		<div class="sensors-measure">%</div>
+	            <div><img src="{{item.imagenurl}}"/></div>
+	            <div class="sensors-data {{item.class}}">{{item.data}}</div>
+	    		<div class="sensors-measure">{{item.measure}}</div>
 
 			</article>
 
@@ -63,39 +24,16 @@
 			M. Ola interior
 		</header>
 
-		<section class="maritimas-content">
+			<section class="maritimas-content" ng-controller="MeasuresController as MeasuresCtrl">
 
-		<article>
+			<article ng-repeat="item in MeasuresCtrl.maritimas">
 
-            <div><img src="images/imagen5.png"/></div>
-            <div class="sensors-data"><span>1.75</span></div>
-    		<div class="sensors-measure">m</div>
+	            <div><img src="{{item.imagenurl}}"/></div>
+	            <div class="sensors-data {{item.class}}">{{item.data}}</div>
+	    		<div class="sensors-measure">{{item.measure}}</div>
 
-		</article>
+			</article>
 
-		<article>
-
-            <div><img src="images/imagen6.png"/></div>
-            <div class="sensors-data">3.54</div>
-    		<div class="sensors-measure">seg</div>
-
-		</article>
-
-		<article>
-
-            <div><img src="images/imagen5.png"/></div>
-            <div class="sensors-data"><span>1.75</span></div>
-    		<div class="sensors-measure">m</div>
-
-		</article>
-
-		<article>
-
-            <div><img src="images/imagen6.png"/></div>
-            <div class="sensors-data">3.54</div>
-    		<div class="sensors-measure">seg</div>
-
-		</article>
+		</section>
 
 	</section>
-
