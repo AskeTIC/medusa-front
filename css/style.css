@@ -28,9 +28,12 @@ body h1{
 		SIDEBAR LEFT
 **************************************************/
 
+aside-left{
+	width:18%;
+}
+
 .aside-left{
 	background:#0a0a0a;
-	width:18%;
 	border-right:3px solid black;
 }
 
@@ -278,9 +281,12 @@ main{
  		SIDEBAR RIGHT
  *************************************************/
 
+aside-right{
+	width:18%;
+}
+
 .aside-right{
 	background:#0a0a0a;
-	width:18%;
 	border-left:3px solid black;
 }
 
