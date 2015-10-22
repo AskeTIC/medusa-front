@@ -8,9 +8,9 @@
 
 		<section class="atmosfericas-content" ng-controller="MeasuresController as MeasuresCtrl">
 
-			<article ng-repeat="item in MeasuresCtrl.atmosfericas">
+			<article ng-repeat="item in MeasuresCtrl.atmospherics">
 
-	            <div><img src="{{item.imagenurl}}"/></div>
+				<div><img src="{{item.imageUrl}}"/></div>
 	            <div class="sensors-data {{item.class}}">{{item.data}}</div>
 	    		<div class="sensors-measure">{{item.measure}}</div>
 
@@ -23,14 +23,14 @@
 	<section>
 
 		<header class="maritimas">
-			M. Ola interior
+			Maritimas ola ant.
 		</header>
 
-			<section class="maritimas-content" ng-controller="MeasuresController as MeasuresCtrl">
+		<section class="maritimas-content" ng-controller="MeasuresController as MeasuresCtrl">
 
-			<article ng-repeat="item in MeasuresCtrl.maritimas">
+			<article ng-repeat="item in MeasuresCtrl.maritime">
 
-	            <div><img src="{{item.imagenurl}}"/></div>
+	        	<div><img src="{{item.imageUrl}}"/></div>
 	            <div class="sensors-data {{item.class}}">{{item.data}}</div>
 	    		<div class="sensors-measure">{{item.measure}}</div>
 
