@@ -7,5 +7,5 @@
 /test/tmp/
 
 /component.json
-/js/bower_components
-/js/bower.json
+/js/lib
+bower.json
