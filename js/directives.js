@@ -9,15 +9,7 @@
                         restrict: 'E',
                         //Le indicamos la URL
                         templateUrl: 'partials/aside-left.html',
-                        controller: function(){
-                                this.measure = {
-                                        name : 'temperatura',
-                                        data : '34',
-                                        date : '12:00:02:04'
-                                }
-
-                        }
-                        /*controllerAs: 'meCtl'*/
+                        controller: 'AsideLeftController'
                 };
         })
         .directive('asideRight', function(){
@@ -26,15 +18,7 @@
                         restrict: 'E',
                         //Le indicamos la URL
                         templateUrl: 'partials/aside-right.html',
-                        controller: function(){
-                                this.measure = {
-                                        name : 'temperatura',
-                                        data : '34',
-                                        date : '12:00:02:04'
-                                }
-
-                        }
-                        /*controllerAs: 'meCtl'*/
+                        controller: 'AsideRightController'
                 };
         })
         .directive('mainNav', function(){
@@ -43,6 +27,7 @@
                         restrict: 'E',
                         //Le indicamos la URL
                         templateUrl: 'partials/main-nav.html',
+                        controller: ''
                 };
         });
 

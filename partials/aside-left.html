@@ -1,12 +1,12 @@
-<aside class="aside-left">
+<aside class="aside-left" ng-controller="MeasuresController as MeasuresCtrl">
 
-	<section>
+	<section class="atmosfericas">
 
-		<header class="atmosfericas">
+		<header class="atmosfericas-header">
 			Atmosféricas
 		</header>
 
-		<section class="atmosfericas-content" ng-controller="MeasuresController as MeasuresCtrl">
+		<section class="atmosfericas-content">
 
 			<article ng-repeat="item in MeasuresCtrl.atmospherics">
 
@@ -20,13 +20,13 @@
 
 	</section>
 
-	<section>
+	<section class="maritimas">
 
-		<header class="maritimas">
+		<header class="maritimas-header">
 			Maritimas ola ant.
 		</header>
 
-		<section class="maritimas-content" ng-controller="MeasuresController as MeasuresCtrl">
+		<section class="maritimas-content">
 
 			<article ng-repeat="item in MeasuresCtrl.maritime">
 
