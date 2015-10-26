@@ -8,8 +8,7 @@
 		//Recoge las measures y las ordena en el orden elegido
 		.controller('AsideLeftController', AsideLeftController)
 		//Envía las orders y las ordena en el orden elegido
-		.controller('AsideRightController', AsideRightController)
-		.controller('MeasuresController', MeasuresController);
+		.controller('AsideRightController', AsideRightController);
 
 	function PrincipalController(){
 
