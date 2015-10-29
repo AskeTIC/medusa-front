@@ -22,12 +22,12 @@
 
 	}
 
-	function AsideLeftController(Measures){
+	function AsideLeftController(){
 		this.atmosphericMeasures = [];
 		this.maritimeMeasures = [];
 	}
 
-	function AsideRightController(Measures){
+	function AsideRightController(){
 		this.trialOrders= [];
 		this.generalOrders = [];
 	}

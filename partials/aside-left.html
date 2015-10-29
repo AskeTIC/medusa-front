@@ -1,4 +1,4 @@
-<aside class="aside-left" ng-controller="MeasuresController as MeasuresCtrl">
+<aside class="aside-left" ng-controller="AsideLeftController as AsLeftCtrl">
 
 	<section class="atmosfericas">
 
@@ -8,7 +8,7 @@
 
 		<section class="atmosfericas-content">
 
-			<article ng-repeat="item in MeasuresCtrl.atmospherics">
+			<article ng-repeat="item in AsLeftCtrl.atmospherics">
 
 				<div><img src="{{item.imageUrl}}"/></div>
 	            <div class="sensors-data {{item.class}}">{{item.data}}</div>
@@ -28,7 +28,7 @@
 
 		<section class="maritimas-content">
 
-			<article ng-repeat="item in MeasuresCtrl.maritime">
+			<article ng-repeat="item in AsLeftCtrl.maritime">
 
 	        	<div><img src="{{item.imageUrl}}"/></div>
 	            <div class="sensors-data {{item.class}}">{{item.data}}</div>
