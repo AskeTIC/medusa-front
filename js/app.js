@@ -4,7 +4,8 @@
 	var app = angular.module('medusa', [
 		'ngRoute',
 		'medusa.directives',
-		'medusa.controllers'
+		'medusa.controllers',
+		'medusa.services'
 	])
 	.config(config);
 
