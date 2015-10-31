@@ -1,4 +1,4 @@
-<aside class="aside-left" ng-controller="AsideLeftController as AsLeftCtrl">
+<aside class="aside-left">
 
 	<section class="atmosfericas">
 
@@ -6,9 +6,9 @@
 			Atmosféricas
 		</header>
 
-		<section class="atmosfericas-content">
-
-			<article ng-repeat="item in AsLeftCtrl.atmosphericsMeasures">
+		<section class="atmosfericas-content" ng-controlller="AsideLeftController as AsLeftCtrl">
+			{{AsLeftCtrl.atmosphericMeasures}}
+			<article ng-repeat="item in AsLeftCtrl.atmosphericMeasures">
 
 				<div><img src="{{item.imageUrl}}"/></div>
 	            <div class="sensors-data {{item.class}}">{{item.data}}</div>

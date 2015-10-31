@@ -3,8 +3,7 @@
 
     angular
         .module('medusa.services', ['ngWebSocket'])
-        .constant('UrlServer', 'http://localhost:3030')
-        .factory('AtmosphericsSensor', atmosphericsSensors)
+        .factory('AtmosphericsSensors', atmosphericsSensors)
         .factory('StrongsSensors', strongsSensors)
         .factory('InclinometersSensors', inclinometersSensors)
         .factory('DistancesSensors', distancesSensors)
@@ -13,12 +12,11 @@
         .factory('ConsumptionsSensors', consumptionsSensors)
         .factory('AnemometersSensors', anemometersSensors)
         .factory('LapCountersSensors', lapCountersSensors)
-        .factory('GuidesSensors', guidesSensors)
-        .factory('Orders', orders);
+        .factory('GuidesSensors', guidesSensors);
 
-        function atmosphericsSensors(UrlServer, $websocket){
+        function atmosphericsSensors($websocket){
             var ws = $websocket('ws://localhost:3030');
-            var measures [];
+            var sensors = [];
 
             ws.onMessage(function(event) {
                 console.log('AtmosphericsSensors: ', event);
@@ -31,7 +29,7 @@
                     res = {'username': 'anonymous', 'message': event.data};
                 }
                 */
-                measures.push({
+                sensors.push({
                     data : res.data,
                     date : res.date
                 });
@@ -53,18 +51,7 @@
             });
 
             return {
-                meaures: measures,
-                status: function() {
-                    return ws.readyState;
-                },
-                send: function(message) {
-                    if (angular.isString(message)) {
-                        ws.send(message);
-                    }
-                    else if (angular.isObject(message)) {
-                        ws.send(JSON.stringify(message));
-                    }
-                }
+                measures: sensors
             };
 
         }
@@ -102,14 +89,6 @@
         }
 
         function guidesSensors(UrlServer, $websocket){
-
-        }
-
-        function sensors(UrlServer){
-
-        }
-
-        function orders(UrlServer){
 
         }
 
