@@ -2,7 +2,7 @@
     "use strict";
 
     angular
-        .module('medusa.services', ['btford.socket-io'])
+        .module('medusa.services', [])
         .factory('AtmosphericsSensors', atmosphericsSensors)
         .factory('StrongsSensors', strongsSensors)
         .factory('InclinometersSensors', inclinometersSensors)
@@ -14,45 +14,34 @@
         .factory('LapCountersSensors', lapCountersSensors)
         .factory('GuidesSensors', guidesSensors);
 
-        function atmosphericsSensors(socketFactory){
-          var ws = $websocket('ws://localhost:3030');
-          var sensors = [];
+        function atmosphericsSensors(){
+          //creamos el socket client con el namespace de sensors
+          var socket = io().connect('http://localhost:3030');
+          console.log("desde atmosphericsSensors");
+          //creamos el array de datos atmosféricos que devolveremos en la Factory
+          var tempSensor = [
+            {
+              measure: '12',
+              date: new Date()
+            }
+          ];
+          console.log(sensors);
 
-          ws.onMessage(function(event) {
-              console.log('AtmosphericsSensors: ', event);
-              var res;
-              res = JSON.parse(event.data);
-              /*
-              try {
-                  res = JSON.parse(event.data);
-              } catch(e) {
-                  res = {'username': 'anonymous', 'message': event.data};
-              }
-              */
-              sensors.push({
-                  data : res.data,
-                  date : res.date
-              });
+          //Cuadno se establezca la conexión....
+          socket.on('conexion-realizada', function(msg){
+            console.log('Servidor conectado: '+ msg);
           });
 
-          ws.onError(function(event) {
-            console.log('connection Error', event);
+          //Cuando lleguen datos del sensor de temperatura....
+          socket.on('data-atmospherics', function(data){
+            console.log(data);
+            sensors.push(data);
           });
 
-          ws.onClose(function(event) {
-            console.log('connection closed', event);
-          });
-
-          ws.onOpen(function() {
-            console.log('connection open');
-            ws.send('Hello World');
-            ws.send('again');
-            ws.send('and again');
-          });
-
-            return {
-                measures: sensors
-            };
+          return {
+              data: sensors,
+              socket: socket
+          };
 
         }
 
