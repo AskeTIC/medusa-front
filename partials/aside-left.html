@@ -7,7 +7,7 @@
 
 		<section class="atmosfericas-content">
 			<article ng-repeat="atmospheric in atmosphericMeasures">
-				<div></div>
+				<div><img src="{{atmospheric.imageUrl}}"/></div>
 	      <div class="sensors-data">{{atmospheric.data}}</div>
 	    	<div class="sensors-measure">{{atmospheric.measure}}</div>
 
@@ -27,7 +27,7 @@
 
 			<article ng-repeat="maritime in maritimeMeasures">
 
-	    	<div></div>
+	    	<div><img src="{{maritime.imageUrl}}"/></div>
 	      <div class="sensors-data ">{{maritime.data}}</div>
 	    	<div class="sensors-measure">{{maritime.measure}}</div>
 
