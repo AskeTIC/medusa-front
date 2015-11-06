@@ -1,4 +1,4 @@
-<aside class="aside-right">
+<aside class="aside-right" ng-controller="AsideRightController">
 
 	<section>
 
@@ -8,24 +8,30 @@
 
 		<section class="ensayos-content">
 
-			<article>
+			<article ng-repeat="order in orders">
 
-				<header>% de carga</header>
+						<header>{{order.name}}</header>
 
-				<section>
-					<div class="div-double"><div class="div-double-inner">
-						<div class="div-button-left"></div>
-						<div class="div-button-right"></div>
-					</div></div>
-					<div class="div-hide"><div></div></div>
-					<div class="button"><div class="div-button-inner-red"></div></div>
-				</section>
+							<section ng-controller="OrdersController">
+									<div class="div-double">
+											<div class="div-double-inner">
+													<div class="div-button-left"></div>
+													<div class="div-button-right"></div>
+											</div>
+								 </div>
+								 <div class="div-hide">
+									 	<div>
+								 		</div>
+							 	</div>
+								<div class="button"><div class="div-button-inner-red"></div></div>
+					  </section>
 
 			</article>
 
+			<!--
 			<article>
 
-				<header>Carena de carga</header>
+				<header></header>
 
 				<section>
 					<div class="div-double"><div class="div-double-inner">
@@ -67,7 +73,7 @@
 				<header>Selector % de uso de anillo</header>
 
 				<section>
-					
+
 					<div class="div-double"><div class="div-double-inner">
 						<div class="div-button-left"></div>
 						<div class="div-button-right"></div>
@@ -77,11 +83,11 @@
 				</section>
 
 			</article>
-
+		-->
 		</section>
 
 		<section class="extra-options">
-			
+
 			<div><a href="#">Más opciones</a></div>
 
 		</section>
