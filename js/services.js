@@ -3,81 +3,81 @@
 
     angular
         .module('medusa.services', [])
-        .factory('AtmosphericsSensors', atmosphericsSensors)
-        .factory('StrongsSensors', strongsSensors)
-        .factory('InclinometersSensors', inclinometersSensors)
-        .factory('DistancesSensors', distancesSensors)
-        .factory('FlowmetersSensors', flowmetersSensors)
-        .factory('MicrowavesSensors', microwavesSensors)
-        .factory('ConsumptionsSensors', consumptionsSensors)
-        .factory('AnemometersSensors', anemometersSensors)
-        .factory('LapCountersSensors', lapCountersSensors)
-        .factory('GuidesSensors', guidesSensors);
+        .factory('AtmosphericSensors', cbAtmosphericSensors)
+        .factory('StrongSensors', cbStrongSensors)
+        .factory('InclinometerSensors', cbInclinometerSensors)
+        .factory('DistanceSensors', cbDistanceSensors)
+        .factory('FlowmeterSensors', cbFlowmeterSensors)
+        .factory('MicrowaveSensors', cbMicrowaveSensors)
+        .factory('ConsumptionSensors', cbConsumptionSensors)
+        .factory('AnemometerSensors', cbAnemometerSensors)
+        .factory('LapCounterSensors', cbLapCounterSensors)
+        .factory('GuideSensors', cbGuideSensors);
 
-        function atmosphericsSensors(){
+        function cbAtmosphericSensors(){
           //creamos el socket client con el namespace de sensors
           var socket = io().connect('http://localhost:3030');
-          console.log("desde atmosphericsSensors");
+          console.log("desde atmosphericSensors");
           //creamos el array de datos atmosféricos que devolveremos en la Factory
           var tempSensor = [
-            {
-              measure: '12',
-              date: new Date()
-            }
+              {
+                measure: '12',
+                date: new Date()
+              }
           ];
-          console.log(sensors);
+          console.log(tempSensor);
 
           //Cuadno se establezca la conexión....
           socket.on('conexion-realizada', function(msg){
-            console.log('Servidor conectado: '+ msg);
+              console.log('Servidor conectado: '+ msg);
           });
 
           //Cuando lleguen datos del sensor de temperatura....
           socket.on('data-atmospherics', function(data){
-            console.log(data);
-            sensors.push(data);
+              console.log(data);
+              sensors.push(data);
           });
 
           return {
-              data: sensors,
+              data: tempSensor,
               socket: socket
           };
 
         }
 
-        function strongsSensors(UrlServer, $websocket){
+        function cbStrongSensors(UrlServer, $websocket){
 
         }
 
-        function inclinometersSensors(UrlServer, $websocket){
+        function cbInclinometerSensors(UrlServer, $websocket){
 
         }
 
-        function distancesSensors(UrlServer, $websocket){
+        function cbDistanceSensors(UrlServer, $websocket){
 
         }
 
-        function flowmetersSensors(UrlServer, $websocket){
+        function cbFlowmeterSensors(UrlServer, $websocket){
 
         }
 
-        function microwavesSensors(UrlServer, $websocket){
+        function cbMicrowaveSensors(UrlServer, $websocket){
 
         }
 
-        function consumptionsSensors(UrlServer, $websocket){
+        function cbConsumptionSensors(UrlServer, $websocket){
 
         }
 
-        function anemometersSensors(UrlServer, $websocket){
+        function cbAnemometerSensors(UrlServer, $websocket){
 
         }
 
-        function lapCountersSensors(UrlServer, $websocket){
+        function cbLapCounterSensors(UrlServer, $websocket){
 
         }
 
-        function guidesSensors(UrlServer, $websocket){
+        function cbGuideSensors(UrlServer, $websocket){
 
         }
 

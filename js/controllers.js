@@ -13,7 +13,7 @@
 		.controller('OrdersController', cbOrdersController)
 
 		//Recoge los datos de los sensores atmosfericos, los une en JSON y hace las formulas correspondientes.
-		.controller('AtmosphericsSensorsController', cbAtmosphericsSensorsController);
+		.controller('AtmosphericSensorsController', cbAtmosphericSensorsController);
 
 
 	//CONTROLADORES QUE DEFINEN EL ORDEN DE LOS ELEMENETOS, ESTABLECIDOS POR ROL X.
@@ -29,7 +29,7 @@
 
 	}
 
-	function AsideLeftController($scope){
+	function AsideLeftController($scope, AtmosphericSensors){
 		$scope.atmosphericMeasures = [];
 		$scope.maritimeMeasures = [];
 
@@ -128,7 +128,7 @@
 			}
 	}
 
-	function cbAtmosphericsSensorsController(AtmosphericsSensors){
+	function cbAtmosphericSensorsController(AtmosphericsSensors){
 		//TODO: Hacer operaciones con los datos que viene en AtmosphericsSensors.sensors y crear un array con measures
 		//TODO: Esto podria ser un servicio de tipo Service o Provider en lugar de uno de tipo Factory que usamos de momento.
 		console.log(AtmosphericsSensors);
