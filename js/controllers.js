@@ -84,34 +84,40 @@
 		//TODO: recoger los sensors ordenados de la configuración y crear el array trialOrders dinamicamente.
 		$scope.orders.push({
 			'name': 'porcentajeCarga',
-			'type' : 100
+			'type' : 100,
+			'status': 0
 	 	});
 
 		$scope.orders.push({
 			'name': 'carenaCarga',
-			'type': 4
+			'type': 4,
+			'status': 0
 	 	});
 
 		$scope.orders.push({
 			'name': 'manejoVela',
-			'type': 0
+			'type': 0,
+			'status': 0
 	 	});
 
 		$scope.orders.push({
 			'name': 'inclinacionVela',
-			'type': 10
+			'type': 10,
+			'status': 0
 	 	});
 
 		$scope.orders.push({
 			'name': 'porcentajeAnillo',
-			'type': 20
+			'type': 20,
+			'status': 0
 	 	});
 
 		//Ordenes generales
 		//TODO: recoger los sensors ordenados de la configuración y crear el array generalOrders dinamicamente.
 		$scope.orders.push({
 			'name': '',
-			'type' : 101
+			'type' : 101,
+			'status': 0
 	 	});
 
 	}
@@ -126,6 +132,31 @@
 					}
 					console.log($scope.order);
 			}
+
+			//Método para llamar cuando se haga click y cambiar su estatus.
+			$scope.statusChange = function(order){
+					if(order.status === 0){
+							order.status = 1;
+							console.log(order.status);
+							setTimeout(change, 2000);
+							console.log("setTimeout ejecutado");
+					}else if(order.status === 1){
+						order.status = 2;
+						//Orden de actuación....
+						console.log(order.name+"Actuando!!!!!!!");
+					}
+
+					function change(){
+							if(order.status === 1){
+									order.status = 0;
+							}
+					}
+
+			};
+
+
+
+
 	}
 
 	function cbAtmosphericSensorsController(AtmosphericsSensors){

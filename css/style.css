@@ -1,15 +1,27 @@
 /**************************************************
-**************************************************
-
-		LAYOUT
-
-***************************************************
+    ABSTRACTS
 **************************************************/
 
 *{
 	margin:0;
 	padding:0;
 }
+
+
+.background-red{
+		background-color: red;
+}
+.background-orange{
+	  background-color: orange;
+}
+.background-green{
+	  background-color: green;
+}
+
+
+/**************************************************
+		LAYOUT
+**************************************************/
 
 
 
@@ -39,7 +51,7 @@ aside-left{
 }
 
 	.aside-left section{
-		
+
 		height:50%;
 
 	}
@@ -93,7 +105,7 @@ aside-left{
 				}
 
 					.aside-left section .atmosfericas-content article div img{
-						
+
 					}
 
 		.aside-left section .maritimas-content{
@@ -132,7 +144,7 @@ aside-left{
 				}
 
 					.aside-left section .maritimas-content article div img{
-							
+
 					}
 
 
@@ -163,7 +175,7 @@ main{
 				display:flex;
 				flex-direction:row;
 				height:100%;
-				
+
 			}
 
 				main .main-topbar nav div a{
@@ -311,11 +323,11 @@ aside-right{
 		.aside-right section .ensayos-content{
 			display:flex;
 			flex-flow:column;
-			height:80%;			
+			height:80%;
 		}
 
 			.aside-right section .ensayos-content article{
-				
+
 			}
 
 				.aside-right section .ensayos-content article header{
@@ -324,13 +336,13 @@ aside-right{
 					padding:15px 0px 15px 0px;
 					border:0px;
 					}
-				
+
 				.aside-right section .ensayos-content article section{
-					height:3rem; /*16 x 3 = 48 pixeles*/		
+					height:3rem; /*16 x 3 = 48 pixeles*/
 					display:flex;
 					flex-flow:row;
 					align-items: center;
-					justify-content:center;	
+					justify-content:center;
 				}
 
 					.aside-right section .ensayos-content article section .button{
@@ -343,7 +355,7 @@ aside-right{
 						display:flex;
 						border:1px solid black;
 						align-items: center;
-						justify-content:center;	
+						justify-content:center;
 					}
 
 					.aside-right section .ensayos-content article section .div-central{
@@ -390,18 +402,20 @@ aside-right{
 								border-right:0px;
 							}
 
+						.aside-right section .ensayos-content article section div .div-button-inner {
+								width:2.6rem;
+								cursor: pointer;
+						}
+
 						.aside-right section .ensayos-content article section div .div-button-inner-red{
-							width:2.6rem;
-							background:#ff0000;
+								background:#ff0000;
 						}
 
 						.aside-right section .ensayos-content article section div .div-button-inner-green{
-							width:2.6rem;
-							background:#22e200;
+								background:#22e200;
 						}
 
 						.aside-right section .ensayos-content article section div .div-button-inner-gray{
-							width:2.6rem;
 							background:#666;
 						}
 
@@ -414,7 +428,7 @@ aside-right{
 		}
 
 			.aside-right section .extra-options div{
-				
+
 			}
 
 				.aside-right section .extra-options div a{
@@ -424,12 +438,10 @@ aside-right{
 					text-decoration:none;
 					color:white;
 					display:block;
-				} 
+				}
 
 					.aside-right section .extra-options div a:hover{
 					text-decoration:none;
 					border:1px solid black;
 					color:black;
-					} 
-
-
+					}
