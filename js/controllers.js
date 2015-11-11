@@ -135,21 +135,30 @@
 
 			//Método para llamar cuando se haga click y cambiar su estatus.
 			$scope.statusChange = function(order){
+
+					var delay = function(time){
+							var timeDelay = time || 2000;
+							setTimeout(change, timeDelay);
+					}
+
 					if(order.status === 0){
 							order.status = 1;
 							console.log(order.status);
-							setTimeout(change, 2000);
-							console.log("setTimeout ejecutado");
+							delay(7000);
 					}else if(order.status === 1){
 						order.status = 2;
+						clearTimeout(delay);
+						console.log("clearTimeout ejecutado");
 						//Orden de actuación....
 						console.log(order.name+"Actuando!!!!!!!");
 					}
 
 					function change(){
-							if(order.status === 1){
+							console.log("setTimeout ejecutado");
+							$scope.$apply(function(){
 									order.status = 0;
-							}
+									console.log(order.status);
+							});
 					}
 
 			};
