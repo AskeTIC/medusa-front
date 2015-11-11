@@ -133,32 +133,44 @@
 					console.log($scope.order);
 			}
 
-			//Método para llamar cuando se haga click y cambiar su estatus.
-			$scope.statusChange = function(order){
 
-					var delay = function(time){
-							var timeDelay = time || 2000;
-							setTimeout(change, timeDelay);
-					}
+
+			//Método para llamar cuando se haga click y cambiar su estatus.
+			var delayId;
+			$scope.statusChange = function(order){
 
 					if(order.status === 0){
 							order.status = 1;
 							console.log(order.status);
-							delay(7000);
+							delay(5000);
 					}else if(order.status === 1){
 						order.status = 2;
-						clearTimeout(delay);
-						console.log("clearTimeout ejecutado");
-						//Orden de actuación....
+						delayStop(delayId);
+						console.log("clearTimeout ejecutado"+delayId);
+						//TODO:Orden de actuación....
 						console.log(order.name+"Actuando!!!!!!!");
 					}
 
 					function change(){
 							console.log("setTimeout ejecutado");
+							// Si modificamos desde el backend o desde el controlador por su propia iniciativa
+							// el DOM no se entera de que ha cambiado una propiedad asocaida a él, y hay que
+							// indicarlo que se refresque con $apply
 							$scope.$apply(function(){
 									order.status = 0;
 									console.log(order.status);
 							});
+					}
+
+					function delay(time){
+							var timeDelay = time || 2000;
+							delayId = setTimeout(change, timeDelay);
+					}
+
+					function delayStop(delayId){
+						clearTimeout(delayId);
+						//Parece mostrar el numero de setTimeout que hay en el contexto global, el primero que hacemos es el Nº 14.
+						console.log(delayId);
 					}
 
 			};
