@@ -164,8 +164,6 @@
 			};
 
 
-
-
 	}
 
 	function cbAtmosphericSensorsController(AtmosphericsSensors){
