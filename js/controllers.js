@@ -9,9 +9,6 @@
 		.controller('AsideLeftController', AsideLeftController)
 		//Envía las orders y las ordena en el orden elegido
 		.controller('AsideRightController', AsideRightController)
-		//Controller de Orders
-		.controller('OrdersController', cbOrdersController)
-
 		//Recoge los datos de los sensores atmosfericos, los une en JSON y hace las formulas correspondientes.
 		.controller('AtmosphericSensorsController', cbAtmosphericSensorsController);
 
@@ -30,6 +27,7 @@
 	}
 
 	function AsideLeftController($scope, AtmosphericSensors){
+
 		$scope.atmosphericMeasures = [];
 		$scope.maritimeMeasures = [];
 
@@ -77,9 +75,11 @@
 
 	}
 
-	function AsideRightController($scope){
+	function AsideRightController($scope, OrderActions){
 		$scope.orders= [];
-
+		//TODO: Corregir error en $scope que no recoge la Factory, habrá que hacerlo con Service o Provider para pasarle $scope al objeto aquí en la construcción.
+		//OrderActions.$scope = $scope; //no parece funcionar
+		$scope.orderActions = OrderActions;
 		//Ordenes de ensayos
 		//TODO: recoger los sensors ordenados de la configuración y crear el array trialOrders dinamicamente.
 		$scope.orders.push({
@@ -128,76 +128,7 @@
 
 	}
 
-	//Callbacks de controladores de orders
-	function cbOrdersController($scope){
-			//TODO: Recorrer los 2 arrays o juntarlos y evaluar si su tipo es mayor de 100... (controlo que sea orden general)
-			//recorro el array que me indiquen por parámetro.
-			for(var order in $scope.orders){
-					if(order.type === 20){
-							$scope.orders[order].action = actionOrders.type(20);
-					}
-					//console.log($scope.order);
-			}
 
-			//ASIGNACION DE METODOS PARA AUMENTAR Y DISMMINUIR EL VALOR
-			$scope.lessValue = function(order){
-					console.log(order.value);
-					if(order.value > 0){
-						order.value = (order.value - order.type);
-						console.log(order.value);
-					}
-			};
-
-			$scope.plusValue = function(order){
-					console.log(order.value);
-					if(order.value < 100){
-							order.value = (order.value + order.type);
-							console.log(order.value);
-					}
-			};
-
-			//Método para llamar cuando se haga click y cambiar su estatus.
-			var delayId;
-			$scope.statusChange = function(order){
-
-					if(order.status === 0){
-							order.status = 1;
-							console.log(order.status);
-							delay(5000);
-					}else if(order.status === 1){
-						order.status = 2;
-						delayStop(delayId);
-						console.log("clearTimeout ejecutado"+delayId);
-						//TODO:Orden de actuación....
-						console.log(order.name+"Actuando!!!!!!!");
-					}
-
-					function change(){
-							console.log("setTimeout ejecutado");
-							// Si modificamos desde el backend o desde el controlador por su propia iniciativa
-							// el DOM no se entera de que ha cambiado una propiedad asocaida a él, y hay que
-							// indicarlo que se refresque con $apply
-							$scope.$apply(function(){
-									order.status = 0;
-									console.log(order.status);
-							});
-					}
-
-					function delay(time){
-							var timeDelay = time || 2000;
-							delayId = setTimeout(change, timeDelay);
-					}
-
-					function delayStop(delayId){
-						clearTimeout(delayId);
-						//Parece mostrar el numero de setTimeout que hay en el contexto global, el primero que hacemos es el Nº 14.
-						console.log(delayId);
-					}
-
-			};
-
-
-	}
 
 	function cbAtmosphericSensorsController(AtmosphericsSensors){
 		//TODO: Hacer operaciones con los datos que viene en AtmosphericsSensors.sensors y crear un array con measures

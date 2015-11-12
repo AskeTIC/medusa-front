@@ -12,18 +12,18 @@
 
 						<header>{{order.name}}</header>
 
-							<section ng-controller="OrdersController">
+							<section>
 									<div class="div-double">
 											<div class="div-double-inner">
-													<div class="div-button-left" ng-click="lessValue(order)"></div>
+													<div class="div-button-left" ng-click="orderActions.lessValue(order)"></div>
 													{{order.value}}
-													<div class="div-button-right" ng-click="plusValue(order)"></div>
+													<div class="div-button-right" ng-click="orderActions.plusValue(order)"></div>
 											</div>
 								 </div>
 								<div class="button">
 									<div class="div-button-inner"
 												ng-class="{'background-orange' : order.status === 1, 'background-green' : order.status === 0, 'background-red': order.status === 2}"
-											  ng-click="statusChange(order)">
+											  ng-click="orderActions.statusChange(order)">
 									</div>
 							 </div>
 					  </section>
