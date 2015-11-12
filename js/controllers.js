@@ -83,33 +83,38 @@
 		//Ordenes de ensayos
 		//TODO: recoger los sensors ordenados de la configuración y crear el array trialOrders dinamicamente.
 		$scope.orders.push({
-			'name': 'porcentajeCarga',
-			'type' : 100,
-			'status': 0
+			'name': '% de carga',
+			'type' : 1,
+			'status': 0,
+			'value': 0
 	 	});
 
 		$scope.orders.push({
-			'name': 'carenaCarga',
-			'type': 4,
-			'status': 0
+			'name': 'Carena de carga',
+			'type': 25,
+			'status': 0,
+			'value': 0
 	 	});
 
 		$scope.orders.push({
-			'name': 'manejoVela',
+			'name': 'Izado de vela',
 			'type': 0,
-			'status': 0
+			'status': 0,
+			'value': 0
 	 	});
 
 		$scope.orders.push({
-			'name': 'inclinacionVela',
+			'name': 'Inclinación de vela',
 			'type': 10,
-			'status': 0
+			'status': 0,
+			'value': 0
 	 	});
 
 		$scope.orders.push({
-			'name': 'porcentajeAnillo',
-			'type': 20,
-			'status': 0
+			'name': '% de anillo',
+			'type': 5,
+			'status': 0,
+			'value': 0
 	 	});
 
 		//Ordenes generales
@@ -117,7 +122,8 @@
 		$scope.orders.push({
 			'name': '',
 			'type' : 101,
-			'status': 0
+			'status': 0,
+			'value': 0
 	 	});
 
 	}
@@ -130,10 +136,25 @@
 					if(order.type === 20){
 							$scope.orders[order].action = actionOrders.type(20);
 					}
-					console.log($scope.order);
+					//console.log($scope.order);
 			}
 
+			//ASIGNACION DE METODOS PARA AUMENTAR Y DISMMINUIR EL VALOR
+			$scope.lessValue = function(order){
+					console.log(order.value);
+					if(order.value > 0){
+						order.value = (order.value - order.type);
+						console.log(order.value);
+					}
+			};
 
+			$scope.plusValue = function(order){
+					console.log(order.value);
+					if(order.value < 100){
+							order.value = (order.value + order.type);
+							console.log(order.value);
+					}
+			};
 
 			//Método para llamar cuando se haga click y cambiar su estatus.
 			var delayId;

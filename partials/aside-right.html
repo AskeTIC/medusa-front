@@ -15,14 +15,11 @@
 							<section ng-controller="OrdersController">
 									<div class="div-double">
 											<div class="div-double-inner">
-													<div class="div-button-left"></div>
-													<div class="div-button-right"></div>
+													<div class="div-button-left" ng-click="lessValue(order)"></div>
+													{{order.value}}
+													<div class="div-button-right" ng-click="plusValue(order)"></div>
 											</div>
 								 </div>
-								 <div class="div-hide">
-									 	<div>
-								 		</div>
-							 	</div>
 								<div class="button">
 									<div class="div-button-inner"
 												ng-class="{'background-orange' : order.status === 1, 'background-green' : order.status === 0, 'background-red': order.status === 2}"
