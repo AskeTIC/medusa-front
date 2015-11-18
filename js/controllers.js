@@ -80,6 +80,7 @@
 		//TODO: Corregir error en $scope que no recoge la Factory, habrá que hacerlo con Service o Provider para pasarle $scope al objeto aquí en la construcción.
 		//OrderActions.$scope = $scope; //no parece funcionar
 		$scope.orderActions = OrderActions;
+
 		//Ordenes de ensayos
 		//TODO: recoger los sensors ordenados de la configuración y crear el array trialOrders dinamicamente.
 		$scope.orders.push({
