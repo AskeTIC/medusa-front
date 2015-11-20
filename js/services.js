@@ -15,34 +15,40 @@
         .factory('GuideSensors', cbGuideSensors)
         .factory('OrderActions', cbOrderActions);
 
+        //TODO: Hacer un solo Facory, Service o Provider para todos los sensores.
         function cbAtmosphericSensors(){
-          //creamos el socket client con el namespace de sensors
-          var socket = io().connect('http://localhost:3030');
-          console.log("desde atmosphericSensors");
-          //creamos el array de datos atmosféricos que devolveremos en la Factory
-          var tempSensor = [
-              {
-                measure: '12',
-                date: new Date()
-              }
-          ];
-          console.log(tempSensor);
+            //creamos el socket client con el namespace de sensors
+            var socket = io.connect('http://localhost:3030');
+            console.log("desde atmosphericSensors");
+            //creamos el array de datos atmosféricos que devolveremos en la Factory
+            var tempSensor = [
+                {
+                  measure: '12',
+                  date: new Date()
+                }
+            ];
+            console.log(tempSensor);
 
-          //Cuadno se establezca la conexión....
-          socket.on('conexion-realizada', function(msg){
-              console.log('Servidor conectado: '+ msg);
-          });
+            //Cuadno se establezca la conexión con el server....
+            socket.on('connect', function(){
+                console.log("conectado al server");
+            });
 
-          //Cuando lleguen datos del sensor de temperatura....
-          socket.on('data-atmospherics', function(data){
-              console.log(data);
-              sensors.push(data);
-          });
+            //Cuando se recibe en evento emitdo desde el server al conectarse un sensor...
+            socket.on('sensor-conectado', function(msg){
+                console.log('Sensor conectado: '+ msg);
+            });
 
-          return {
-              data: tempSensor,
-              socket: socket
-          };
+            //Cuando lleguen datos del sensor de temperatura....
+            socket.on('data-atmospherics', function(data){
+                console.log(data);
+                sensors.push(data);
+            });
+
+            return {
+                data: tempSensor,
+                socket: socket
+            };
 
         }
 
@@ -89,6 +95,10 @@
 
         //OrderActions
         function cbOrderActions($timeout){
+            //TODO:Ver si es correcto crear 2 variables con un socket al server. Hacer con una constante?? con un Service o Provider ?? 
+            //Establecer socket con el server...
+            var socket = io.connect('http://localhost:3030');
+
             /*TODO: Todo se carga 6 veces por que se incluye OrderController en cada article del ng-repeat,
             lo correcto es OrderController abarque a todos los items del bucle, pasarlo todo al AsideRightController o
             que cada order tenga su controller individual.
@@ -131,6 +141,7 @@
                   delayStop(delayId);
                   console.log("clearTimeout ejecutado"+delayId);
                   //TODO:Orden de actuación....
+                  emitValueData(order);
                   console.log(order.name+"Actuando!!!!!!!");
                 }
 
@@ -156,17 +167,24 @@
                     /* Si modificamos desde el backend o desde el controlador por su propia iniciativa
                     el DOM no se entera de que ha cambiado una propiedad asocaida a él, y hay que
                     indicarlo que se refresque con $apply*/
-                    //Ahora con $timeout el mismo llama a $apply y refresca el DOM. 
+                    //Ahora con $timeout el mismo llama a $apply y refresca el DOM.
                     order.status = 0;
                     console.log(order.status);
                 }
 
             }
 
+            //Método que emite el evento con el nombre de orden y con el valor (data) que tenga.
+            function emitValueData(order){
+                socket.emit('emit-'+order.name, order.value);
+                console.log("emitiendo evento con data desde emitValueData()");
+            }
+
             return {
                 lessValue: lessValue,
                 plusValue: plusValue,
-                statusChange: statusChange
+                statusChange: statusChange,
+                emitValueData : emitValueData
             }
 
         }
