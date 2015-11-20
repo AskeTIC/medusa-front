@@ -14,8 +14,58 @@
 
 
 	//CONTROLADORES QUE DEFINEN EL ORDEN DE LOS ELEMENETOS, ESTABLECIDOS POR ROL X.
-	function PrincipalController(){
+	function PrincipalController($scope){
 
+			//TODO: Recoger los charts dentro de un Service (probablemente provider),creadas desde la configuración con un provider por cada tipo de chart.
+			//TODO: recorrer los charts creados en el provider y ordenarlos según esté indicado en la configuración.
+
+			$scope.charts = [];
+
+			var torque = {
+					chartConfig: {
+							"options": {
+									"chart": {
+											"type": 'bar'
+									}
+							},
+							"series": [{
+									"data": [10, 15, 12, 8, 7]
+							}],
+							"title": {
+									"text": 'Hello'
+							},
+
+							"loading": false
+					}
+			};
+
+			$scope.charts.push(torque);
+
+			var reloj = {
+					chartConfig: {
+							"options": {
+									"chart": {
+											"type": "gaue"
+									}
+							},
+							"series": [{
+									data: [10, 15, 12, 8, 7]
+							}],
+							"title": {
+									"text": 'Reloj'
+							},
+
+							"loading": false
+					}
+			};
+
+			$scope.charts.push(reloj);
+
+			console.log($scope.charts['reloj']);
+
+
+
+			//$scope.charts.push(combinada);
 	}
 
 	function PruebasController(){

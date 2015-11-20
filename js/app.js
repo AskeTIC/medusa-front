@@ -2,6 +2,7 @@
 	"use strict";
 	//Creamos la app de Angular que es un módulo -medusa- sin dependencias
 	var app = angular.module('medusa', [
+		'highcharts-ng',
 		'ngRoute',
 		'medusa.directives',
 		'medusa.controllers',
