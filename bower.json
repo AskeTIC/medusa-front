@@ -19,6 +19,8 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "1.4.7"
+    "angular": "1.4.7",
+    "highcharts": "~4.1.9",
+    "jquery": "~2.1.4"
   }
 }
