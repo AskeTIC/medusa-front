@@ -19,33 +19,42 @@
 			//TODO: Recoger los charts dentro de un Service (probablemente provider),creadas desde la configuración con un provider por cada tipo de chart.
 			//TODO: recorrer los charts creados en el provider y ordenarlos según esté indicado en la configuración.
 
+			//El array charts está vacío ------------------------------------------------------
 			$scope.charts = [];
 
-			var torque = {
-					chartConfig: {
+			//mostrar los elementos de chart
+			console.log($scope.charts);
+
+			var	torque = {
 							"options": {
 									"chart": {
 											"type": 'bar'
-									}
+									},
+									tooltip: {
+						          style: {
+						              "display":'none',
+						          }
+						      }
 							},
 							"series": [{
 									"data": [10, 15, 12, 8, 7]
 							}],
 							"title": {
-									"text": 'Hello'
+									"text": 'Torque'
 							},
 
 							"loading": false
-					}
-			};
 
+					};
+
+			//Introducimos el nuevo chart como elemento de $scope.charts
 			$scope.charts.push(torque);
 
 			var reloj = {
 					chartConfig: {
 							"options": {
 									"chart": {
-											"type": "gaue"
+											"type": "solidgauge"
 									}
 							},
 							"series": [{
@@ -61,7 +70,7 @@
 
 			$scope.charts.push(reloj);
 
-			console.log($scope.charts['reloj']);
+			console.log($scope.charts['reloj'] + " esto es para el reloj");
 
 
 

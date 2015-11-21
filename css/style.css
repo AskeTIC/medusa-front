@@ -270,6 +270,17 @@ main{
 				border:2px solid;
 			}
 
+			main .main-content .main-div-left div .main-single-article,
+			main .main-content .main-div-center div .main-single-article,
+			main .main-content .main-div-right div .main-single-article,
+			main .main-content .main-div-left div .main-double-article,
+			main .main-content .main-div-center div .main-double-article,
+			main .main-content .main-div-right div .main-double-article{
+				overflow:hidden;/*NUEVO ESTILO*/
+			}
+
+
+
 		main .main-content .main-div-center, main .main-content .main-div-right{
 			width:39.8%;
 		}
