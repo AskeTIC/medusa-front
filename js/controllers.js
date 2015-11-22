@@ -19,42 +19,90 @@
 			//TODO: Recoger los charts dentro de un Service (probablemente provider),creadas desde la configuración con un provider por cada tipo de chart.
 			//TODO: recorrer los charts creados en el provider y ordenarlos según esté indicado en la configuración.
 
-			//El array charts está vacío ------------------------------------------------------
 			$scope.charts = [];
 
-			//mostrar los elementos de chart
-			console.log($scope.charts);
+			//POSIBLES OBJETOS QUE SE UTILIZARAN COMO CHARTS
 
-			var	torque = {
+			//Torque
+			var torque = {
+					chartConfig: {
+							"name": "Torque",
 							"options": {
 									"chart": {
 											"type": 'bar'
-									},
-									tooltip: {
-						          style: {
-						              "display":'none',
-						          }
-						      }
+									}
 							},
 							"series": [{
 									"data": [10, 15, 12, 8, 7]
 							}],
 							"title": {
-									"text": 'Torque'
+									"text": 'Hello'
 							},
 
 							"loading": false
+					}
+			};
+			//$scope.charts.push(torque);
+			$scope.charts['torque.chartConfig.name'] = torque;
+			// Se crea un nuevo elemento en el array $scope.charts, donde tanto el nombre de la posición que ocupa
+			// como el título de dicho elemento será el nombre del objeto que se guardará en él.
+			$scope.charts['torque.chartConfig.name'].chartConfig.title.text = torque.chartConfig.name;
 
-					};
+			//Consumo
+			var consumo = {
+					chartConfig: {
+							"name": "Consumo",
+							"options": {
+									"chart": {
+											"type": 'bar'
+									}
+							},
+							"series": [{
+									"data": [10, 15, 12, 8, 7]
+							}],
+							"title": {
+									"text": 'Hello'
+							},
 
-			//Introducimos el nuevo chart como elemento de $scope.charts
-			$scope.charts.push(torque);
+							"loading": false
+					}
+			};
+			//$scope.charts.push(consumo);
+			$scope.charts['consumo.chartConfig.name'] = consumo;
+			// Se crea un nuevo elemento en el array $scope.charts, donde tanto el nombre de la posición que ocupa
+			// como el título de dicho elemento será el nombre del objeto que se guardará en él.
+			$scope.charts['consumo.chartConfig.name'].chartConfig.title.text = consumo.chartConfig.name;
 
+			//% de aplicación de recursos
+			var porcentajeRecursos = {
+					chartConfig: {
+							"name": "porcentajeRecursos",
+							"options": {
+									"chart": {
+											"type": 'bar'
+									}
+							},
+							"series": [{
+									"data": [10, 15, 12, 8, 7]
+							}],
+							"title": {
+									"text": 'Hello'
+							},
+							"loading": false
+					}
+			};
+			//$scope.charts.push(consumo);
+			$scope.charts['porcentajeRecursos.chartConfig.name'] = porcentajeRecursos;
+			// Se crea un nuevo elemento en el array $scope.charts, donde tanto el nombre de la posición que ocupa
+			// como el título de dicho elemento será el nombre del objeto que se guardará en él.
+			$scope.charts['porcentajeRecursos.chartConfig.name'].chartConfig.title.text = porcentajeRecursos.chartConfig.name;
+
+			//Reloj
 			var reloj = {
 					chartConfig: {
 							"options": {
 									"chart": {
-											"type": "solidgauge"
+											"type": "bar"
 									}
 							},
 							"series": [{
@@ -63,16 +111,14 @@
 							"title": {
 									"text": 'Reloj'
 							},
-
 							"loading": false
 					}
 			};
-
-			$scope.charts.push(reloj);
-
-			console.log($scope.charts['reloj'] + " esto es para el reloj");
-
-
+			//$scope.charts.push(reloj);
+			$scope.charts['reloj.chartConfig.name'] = reloj;
+			// Se crea un nuevo elemento en el array $scope.charts, donde tanto el nombre de la posición que ocupa
+			// como el título de dicho elemento será el nombre del objeto que se guardará en él.
+			$scope.charts['reloj.chartConfig.name'].chartConfig.title.text = reloj.chartConfig.name;
 
 			//$scope.charts.push(combinada);
 	}
