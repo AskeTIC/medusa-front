@@ -7,7 +7,7 @@
         .factory('Calc', cbCalc);
 
         function cbCalc(){
-			//Suma de uno o más números
+		//Suma de uno o más números
 		var sumar = function(nums, num){
 			var num2 = num || null;
 			var result = 0;
@@ -25,7 +25,7 @@
 
 		//restar 2 números
 		var restar = function(num1, num2){
-			return (parseInt(num1) + parseInt(num2));;
+			return (parseInt(num1) + parseInt(num2));
 		};
 
 		//multiplicar 2 números
@@ -34,24 +34,37 @@
 		};
 
 		//Dividir 2 números
-	    	var dividir = function(divisor, dividendo){
+		var dividir = function(divisor, dividendo){
 			return (parseInt(divisor) / parseInt(dividendo));
-	    	};
-
-		var get_tangent = function(degree){
-			return Math.tan(parseInt(degree));
 		};
 
+		//Obtener la tangente de un grado
+		var get_tangent = function(degree){
+			return Math.tan(degree);
+		};
+
+		var get_atangent = function(degree){
+			return Math.atan(degree);
+		};
+
+		//Calcular el radian de un grado
 		var get_radian = function(degree){
 		    	return parseInt(degree) * Math.PI / 180;
+		};
+
+		//calcular una potencia
+		var get_power = function(degree){
+			return parseInt(Math.pow(degree));
 		};
 
 		return {
 			sum: sumar,
 			rest: restar,
 			mult: multiplicar,
+			power: get_power,
 			div: dividir,
-			tanget: get_tangent,
+			tang: get_tangent,
+			atang: get_atangent,
 			radian: get_radian
 		}
         }
