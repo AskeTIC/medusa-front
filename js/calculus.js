@@ -7,7 +7,8 @@
         .factory('Calc', cbCalc);
 
         function cbCalc(){
-			//Parsear un string a int o float
+		
+		//Parsear un string a int o float
 		var parse = function(string, parse){
 			var result;
 			if(parse === "float"){
@@ -37,7 +38,7 @@
 		//restar 2 números
 		var restar = function(num1, num2, number){
 			var number = number || "float";
-			return (parse(num1, number) + parse(num2, number));
+			return (parse(num1, number) - parse(num2, number));
 		};
 
 		//multiplicar 2 números
@@ -70,15 +71,23 @@
 		};
 
 		//Calcular el radian de un grado
-		var get_radian = function(degree){
+		var get_radian = function(degree, number){
 			var number = number || "int";
 		    return parse(degree, number) * Math.PI / 180;
 		};
 
-		//calcular una potencia
-		var get_power = function(degree){
+		//calcular una potencia sin decimales
+		//TODO: conseguir hacerla con decimales, probablemente hay que hacer un bucle tantas veces como la potencia.
+		var get_power = function(degree, power, number){
 			var number = number || "int";
-			return Math.pow(parse(degree, number));
+			return Math.pow(parse(degree, number), power);
+		};
+
+		//raiz cuadrada de un número
+		//TODO: Hacer que le pases un número para calcular la raiz cubica o de otro.
+		var get_squareRoot = function(num, number){
+			var number = number || "int";
+			return  Math.sqrt(parse(num, number));
 		};
 
 		return {
@@ -90,7 +99,8 @@
 			tang: get_tangent,
 			atang: get_atangent,
 			radian: get_radian,
-			degree: get_degree
+			degree: get_degree,
+			root2: get_squareRoot
 		}
         }
 })();
