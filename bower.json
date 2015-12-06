@@ -21,6 +21,7 @@
   "dependencies": {
     "angular": "1.4.7",
     "highcharts": "~4.1.9",
-    "jquery": "~2.1.4"
+    "jquery": "~2.1.4",
+    "highcharts-ng": "~0.0.11"
   }
 }

@@ -23,7 +23,94 @@
 
 			//POSIBLES OBJETOS QUE SE UTILIZARAN COMO CHARTS
 
-			//Torque
+			//Desplazamiento  ///////////////////////////////////////////////////////////////////////////////////
+
+			var desplazamiento = {
+
+				chartConfig: {
+					name:'Desplazamiento',
+					title: {
+					text: '',
+					x: -20 //center
+					},
+					xAxis: {
+							categories: ['', '']
+					},
+					yAxis: {
+							categories: ['']
+					},
+					series: [{
+							name: 'n',
+							data: [7.0, 7.0]
+					}]
+
+				}//fin chartconfig
+
+
+			}//fin Desplazamiento
+
+			$scope.charts['desplazamiento.chartConfig.name'] = desplazamiento;
+			$scope.charts['desplazamiento.chartConfig.name'].chartConfig.title.text = desplazamiento.chartConfig.name;
+
+			//Carga en bodega  ///////////////////////////////////////////////////////////////////////////////////
+
+			var cargaBodega = {
+
+				chartConfig: {
+					name:'Carga en bodega',
+					title: {
+					text: '',
+					x: -20 //center
+					},
+					xAxis: {
+							categories: ['', '']
+					},
+					yAxis: {
+							categories: ['']
+					},
+					series: [{
+							name: 'n',
+							data: [7.0, 7.0]
+					}]
+
+				}//fin chartconfig
+
+
+			}//fin cargaBodega
+
+			$scope.charts['cargaBodega.chartConfig.name'] = cargaBodega;
+			$scope.charts['cargaBodega.chartConfig.name'].chartConfig.title.text = cargaBodega.chartConfig.name;
+
+			//Carga en cubierta  ///////////////////////////////////////////////////////////////////////////////////
+
+			var cargaCubierta = {
+
+				chartConfig: {
+					name:'Carga en cubierta',
+					title: {
+					text: '',
+					x: -20 //center
+					},
+					xAxis: {
+							categories: ['', '']
+					},
+					yAxis: {
+							categories: ['']
+					},
+					series: [{
+							name: 'n',
+							data: [7.0, 7.0]
+					}]
+
+				}//fin chartconfig
+
+
+			}//fin cargaCubierta
+
+			$scope.charts['cargaCubierta.chartConfig.name'] = cargaCubierta;
+			$scope.charts['cargaCubierta.chartConfig.name'].chartConfig.title.text = cargaCubierta.chartConfig.name;
+
+			//Torque ///////////////////////////////////////////////////////////////////////////////////
 			var torque = {
 					chartConfig: {
 							"name": "Torque",
@@ -48,47 +135,233 @@
 			// como el título de dicho elemento será el nombre del objeto que se guardará en él.
 			$scope.charts['torque.chartConfig.name'].chartConfig.title.text = torque.chartConfig.name;
 
-			//Consumo
+			//Consumo ///////////////////////////////////////////////////////////////////////////////////
 			var consumo = {
-					chartConfig: {
-							"name": "Consumo",
-							"options": {
-									"chart": {
-											"type": 'bar'
-									}
-							},
-							"series": [{
-									"data": [10, 15, 12, 8, 7]
-							}],
-							"title": {
-									"text": 'Hello'
-							},
+				chartConfig: {
+					name: "Consumo",
+				  options: {
+				      chart: {
+				          type: 'gauge',
+									plotBorderWidth: 0,
+			            plotBackgroundColor: '#fff',
+			            plotBackgroundImage: null,
+			            height: 180
+				      },
+			        pane: [{
+			            startAngle: -45,
+			            endAngle: 45,
+			            background: null,
+			            center: ['27%', '90%'],
+			            size: 150
+			        }, {
+			            startAngle: -45,
+			            endAngle: 45,
+			            background: null,
+			            center: ['77%', '90%'],
+			            size: 150
+			        }],
 
-							"loading": false
+			        tooltip: {
+			            enabled: false
+			        },
+			        plotOptions: {
+			            gauge: {
+			                dataLabels: {
+			                    enabled: false
+			                },
+			                dial: {
+			                    radius: '100%'
+			                }
+			            }
+			        }
+				  },
+					title: {
+							text: 'VU meter'
+					},
+					yAxis: [{
+							min: -20,
+							max: 6,
+							minorTickPosition: 'outside',
+							tickPosition: 'outside',
+							labels: {
+									rotation: 'auto',
+									distance: 20
+							},
+							plotBands: [{
+									from: 0,
+									to: 6,
+									color: '#C02316',
+									innerRadius: '100%',
+									outerRadius: '105%'
+							}],
+							pane: 0,
+							title: {
+									text: 'Motor<br/><span style="font-size:8px">Achique</span>',
+									y: -40
+							}
+					}, {
+							min: -20,
+							max: 6,
+							minorTickPosition: 'outside',
+							tickPosition: 'outside',
+							labels: {
+									rotation: 'auto',
+									distance: 20
+							},
+							plotBands: [{
+									from: 0,
+									to: 6,
+									color: '#C02316',
+									innerRadius: '100%',
+									outerRadius: '105%'
+							}],
+							pane: 1,
+							title: {
+									text: 'Motor<br/><span style="font-size:8px">Nivelación</span>',
+									y: -40
 					}
-			};
+					}],
+					series: [{
+									name: 'Motor Achique',
+									data: [-20],
+									yAxis: 0
+							}, {
+									name: 'Motor Nivelación',
+									data: [-20],
+									yAxis: 1
+							}],
+				  //function (optional)
+				  func: function (chart) {//esta funcion que podría servir para los intervals funciona
+				   //setup some logic for the chart
+					 //alert("funciona");
+					 setInterval(function () {
+                if (chart.series) { // the chart may be destroyed
+                    var left = chart.series[0].points[0],
+                        right = chart.series[1].points[0],
+                        leftVal,
+                        rightVal,
+                        inc = (Math.random() - 0.5) * 3;
+
+		                    leftVal = left.y + inc;
+		                    rightVal = leftVal + inc / 3;
+		                    if (leftVal < -20 || leftVal > 6) {
+		                        leftVal = left.y - inc;
+		                    }
+		                    if (rightVal < -20 || rightVal > 6) {
+		                        rightVal = leftVal;
+		                    }
+
+		                    left.update(leftVal, false);
+		                    right.update(rightVal, false);
+		                    chart.redraw();
+		                }
+		            }, 500);
+				  }
+				}//fin chartConfig
+
+			}//fin Consumo
+
 			//$scope.charts.push(consumo);
 			$scope.charts['consumo.chartConfig.name'] = consumo;
 			// Se crea un nuevo elemento en el array $scope.charts, donde tanto el nombre de la posición que ocupa
 			// como el título de dicho elemento será el nombre del objeto que se guardará en él.
 			$scope.charts['consumo.chartConfig.name'].chartConfig.title.text = consumo.chartConfig.name;
 
-			//% de aplicación de recursos
+			//% de aplicación de recursos ///////////////////////////////////////////////////////////////////////////
 			var porcentajeRecursos = {
 					chartConfig: {
-							"name": "porcentajeRecursos",
-							"options": {
-									"chart": {
-											"type": 'bar'
-									}
-							},
-							"series": [{
-									"data": [10, 15, 12, 8, 7]
-							}],
-							"title": {
-									"text": 'Hello'
-							},
-							"loading": false
+						name: "porcentajeRecursos",
+						options: {
+								chart: {
+										type: 'gauge',
+										plotBorderWidth: 0,
+										plotBackgroundColor: '#fff',
+										plotBackgroundImage: null,
+										height: 180
+								},
+								pane: [{
+										startAngle: -45,
+										endAngle: 45,
+										background: null,
+										center: ['27%', '90%'],
+										size: 150
+								}, {
+										startAngle: -45,
+										endAngle: 45,
+										background: null,
+										center: ['77%', '90%'],
+										size: 150
+								}],
+
+								tooltip: {
+										enabled: false
+								},
+								plotOptions: {
+										gauge: {
+												dataLabels: {
+														enabled: false
+												},
+												dial: {
+														radius: '100%'
+												}
+										}
+								}
+						},
+						title: {
+								text: 'VU meter'
+						},
+						yAxis: [{
+								min: -20,
+								max: 6,
+								minorTickPosition: 'outside',
+								tickPosition: 'outside',
+								labels: {
+										rotation: 'auto',
+										distance: 20
+								},
+								plotBands: [{
+										from: 0,
+										to: 6,
+										color: '#C02316',
+										innerRadius: '100%',
+										outerRadius: '105%'
+								}],
+								pane: 0,
+								title: {
+										text: '<br/><span style="font-size:8px"></span>',
+										y: -40
+								}
+						}, {
+								min: -20,
+								max: 6,
+								minorTickPosition: 'outside',
+								tickPosition: 'outside',
+								labels: {
+										rotation: 'auto',
+										distance: 20
+								},
+								plotBands: [{
+										from: 0,
+										to: 6,
+										color: '#C02316',
+										innerRadius: '100%',
+										outerRadius: '105%'
+								}],
+								pane: 1,
+								title: {
+										text: '<br/><span style="font-size:8px"></span>',
+										y: -40
+						}
+						}],
+						series: [{
+										name: 'Channel A',
+										data: [-20],
+										yAxis: 0
+								}, {
+										name: 'Channel B',
+										data: [-20],
+										yAxis: 1
+								}]
 					}
 			};
 			//$scope.charts.push(consumo);
@@ -119,6 +392,290 @@
 			// Se crea un nuevo elemento en el array $scope.charts, donde tanto el nombre de la posición que ocupa
 			// como el título de dicho elemento será el nombre del objeto que se guardará en él.
 			$scope.charts['reloj.chartConfig.name'].chartConfig.title.text = reloj.chartConfig.name;
+
+			// Comparativa escora nivelado ///////////////////////////////////////////////////////////////////////////
+			var comparativaEscoraNivelado = {
+				chartConfig: {
+					name: "comparativaEscoraNivelado",
+				  options: {
+				      chart: {
+				          type: 'solidgauge',
+									plotBorderWidth: 0,
+			            plotBackgroundColor: '#fff',
+			            plotBackgroundImage: null,
+			            height: 180
+				      },
+			        pane: [{
+			            startAngle: -90,
+			            endAngle: 90,
+			            background: {
+										backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+		                innerRadius: '60%',
+		                outerRadius: '100%',
+		                shape: 'arc'
+									},
+			            center: ['27%', '90%'],
+			            size: 150
+			        }, {
+			            startAngle: -90,
+			            endAngle: 90,
+			            background: {
+										backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+		                innerRadius: '60%',
+		                outerRadius: '100%',
+		                shape: 'arc'
+									},
+			            center: ['77%', '90%'],
+			            size: 150
+			        }],
+
+			        tooltip: {
+			            enabled: false
+			        },
+			        plotOptions: {
+			            gauge: {
+			                dataLabels: {
+			                    enabled: false
+			                },
+			                dial: {
+			                    radius: '100%'
+			                }
+			            }
+			        }
+				  },
+					title: {
+							text: ''
+					},
+					yAxis: [{
+							min: 0,
+							max: 200,
+							minorTickPosition: 'outside',
+							tickPosition: 'outside',
+							labels: {
+									rotation: 'auto',
+									distance: 20
+							},
+							plotBands: [{
+									from: 0,
+									to: 6,
+									color: '#C02316',
+									innerRadius: '100%',
+									outerRadius: '105%'
+							}],
+							pane: 0,
+							title: {
+									text: '<br/><span style="font-size:8px">Anillo</span>',
+									y: -40
+							}
+					}, {
+							min: -20,
+							max: 6,
+							minorTickPosition: 'outside',
+							tickPosition: 'outside',
+							labels: {
+									rotation: 'auto',
+									distance: 20
+							},
+							plotBands: [{
+									from: 0,
+									to: 6,
+									color: '#C02316',
+									innerRadius: '100%',
+									outerRadius: '105%'
+							}],
+							pane: 1,
+							title: {
+									text: '<br/><span style="font-size:8px">Ola</span>',
+									y: -40
+					}
+					}],
+					series: [{
+									name: 'Channel A',
+									data: [-20],
+									yAxis: 0
+							}, {
+									name: 'Channel B',
+									data: [-20],
+									yAxis: 1
+							}],
+				  //function (optional)
+				  func: function (chart) {//esta funcion que podría servir para los intervals funciona
+				   //setup some logic for the chart
+					 //alert("funciona");
+					 setInterval(function () {
+                if (chart.series) { // the chart may be destroyed
+                    var left = chart.series[0].points[0],
+                        right = chart.series[1].points[0],
+                        leftVal,
+                        rightVal,
+                        inc = (Math.random() - 0.5) * 3;
+
+		                    leftVal = left.y + inc;
+		                    rightVal = leftVal + inc / 3;
+		                    if (leftVal < -20 || leftVal > 6) {
+		                        leftVal = left.y - inc;
+		                    }
+		                    if (rightVal < -20 || rightVal > 6) {
+		                        rightVal = leftVal;
+		                    }
+
+		                    left.update(leftVal, false);
+		                    right.update(rightVal, false);
+		                    chart.redraw();
+		                }
+		            }, 500);
+				  }
+				}//fin chartConfig
+
+			}//fin comparativaEscoraNivelado
+
+			//$scope.charts.push(consumo);
+			$scope.charts['comparativaEscoraNivelado.chartConfig.name'] = comparativaEscoraNivelado;
+			// Se crea un nuevo elemento en el array $scope.charts, donde tanto el nombre de la posición que ocupa
+			// como el título de dicho elemento será el nombre del objeto que se guardará en él.
+			$scope.charts['comparativaEscoraNivelado.chartConfig.name'].chartConfig.title.text = comparativaEscoraNivelado.chartConfig.name;
+
+			// Sensores de ensayos ///////////////////////////////////////////////////////////////////////////
+			var sensoresEnsayo = {
+				chartConfig: {
+					name: "Sensores de ensayos",
+				  options: {
+				      chart: {
+				          type: 'solidgauge',
+									plotBorderWidth: 0,
+			            plotBackgroundColor: '#fff',
+			            plotBackgroundImage: null,
+			            height: 180
+				      },
+			        pane: [{
+			            startAngle: -90,
+			            endAngle: 90,
+			            background: {
+										backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+		                innerRadius: '60%',
+		                outerRadius: '100%',
+		                shape: 'arc'
+									},
+			            center: ['27%', '90%'],
+			            size: 150
+			        }, {
+			            startAngle: -90,
+			            endAngle: 90,
+			            background: {
+										backgroundColor: (Highcharts.theme && Highcharts.theme.background2) || '#EEE',
+		                innerRadius: '60%',
+		                outerRadius: '100%',
+		                shape: 'arc'
+									},
+			            center: ['77%', '90%'],
+			            size: 150
+			        }],
+
+			        tooltip: {
+			            enabled: false
+			        },
+			        plotOptions: {
+			            gauge: {
+			                dataLabels: {
+			                    enabled: false
+			                },
+			                dial: {
+			                    radius: '100%'
+			                }
+			            }
+			        }
+				  },
+					title: {
+							text: ''
+					},
+					yAxis: [{
+							min: 0,
+							max: 200,
+							minorTickPosition: 'outside',
+							tickPosition: 'outside',
+							labels: {
+									rotation: 'auto',
+									distance: 20
+							},
+							plotBands: [{
+									from: 0,
+									to: 6,
+									color: '#C02316',
+									innerRadius: '100%',
+									outerRadius: '105%'
+							}],
+							pane: 0,
+							title: {
+									text: '<br/><span style="font-size:8px">Anillo</span>',
+									y: -40
+							}
+					}, {
+							min: -20,
+							max: 6,
+							minorTickPosition: 'outside',
+							tickPosition: 'outside',
+							labels: {
+									rotation: 'auto',
+									distance: 20
+							},
+							plotBands: [{
+									from: 0,
+									to: 6,
+									color: '#C02316',
+									innerRadius: '100%',
+									outerRadius: '105%'
+							}],
+							pane: 1,
+							title: {
+									text: '<br/><span style="font-size:8px">Ola</span>',
+									y: -40
+					}
+					}],
+					series: [{
+									name: 'Channel A',
+									data: [-20],
+									yAxis: 0
+							}, {
+									name: 'Channel B',
+									data: [-20],
+									yAxis: 1
+							}],
+				  //function (optional)
+				  func: function (chart) {//esta funcion que podría servir para los intervals funciona
+				   //setup some logic for the chart
+					 //alert("funciona");
+					 setInterval(function () {
+                if (chart.series) { // the chart may be destroyed
+                    var left = chart.series[0].points[0],
+                        right = chart.series[1].points[0],
+                        leftVal,
+                        rightVal,
+                        inc = (Math.random() - 0.5) * 3;
+
+		                    leftVal = left.y + inc;
+		                    rightVal = leftVal + inc / 3;
+		                    if (leftVal < -20 || leftVal > 6) {
+		                        leftVal = left.y - inc;
+		                    }
+		                    if (rightVal < -20 || rightVal > 6) {
+		                        rightVal = leftVal;
+		                    }
+
+		                    left.update(leftVal, false);
+		                    right.update(rightVal, false);
+		                    chart.redraw();
+		                }
+		            }, 500);
+				  }
+				}//fin chartConfig
+
+			}//fin sensoresEnsayo
+
+			//$scope.charts.push(consumo);
+			$scope.charts['sensoresEnsayo.chartConfig.name'] = sensoresEnsayo;
+			// Se crea un nuevo elemento en el array $scope.charts, donde tanto el nombre de la posición que ocupa
+			// como el título de dicho elemento será el nombre del objeto que se guardará en él.
+			$scope.charts['sensoresEnsayo.chartConfig.name'].chartConfig.title.text = sensoresEnsayo.chartConfig.name;
 
 			//$scope.charts.push(combinada);
 	}
