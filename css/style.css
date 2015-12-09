@@ -17,7 +17,10 @@
 .background-green{
 	  background-color: green;
 }
-
+/*clase del menu contextual de los highcharts*/
+.highcharts-button{
+	display:none;
+}
 
 /**************************************************
 		LAYOUT
